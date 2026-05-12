@@ -1,0 +1,38 @@
+# Theme 1 Talk to Data — Postgres + pgvector + Streamlit
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: natwest_pgvector
+    environment:
+      POSTGRES_USER: natwest
+      POSTGRES_PASSWORD: natwest
+      POSTGRES_DB: talkdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+      - ./docker/init-scripts:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U natwest -d talkdata"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: natwest_streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      DATABASE_URL: postgresql://natwest:natwest@db:5432/talkdata
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgvector_data:
