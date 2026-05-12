@@ -25,10 +25,6 @@ Non-technical users upload a **CSV** (or **PDF**) and ask business-style questio
 
 ```bash
 python -m venv .venv
-
-Delete the current terminal
-Create a new one and then do:
-
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```

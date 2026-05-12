@@ -22,7 +22,7 @@ There is no separate “must change these files after GitHub” rule — only ve
 Run from the project root (folder that contains `README.md`):
 
 ```bash
-cd /Users/naman/Desktop/natwestSubmission
+cd /path/to/your/project   # folder that contains README.md
 
 git init
 git branch -M main

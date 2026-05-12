@@ -242,8 +242,8 @@ def on_page(canvas, doc):
 # ---------- CONTENT ----------
 
 # Convenience names — change anywhere if needed.
-F1 = "FRIEND 1 (Naman)"
-F2 = "FRIEND 2 (Your friend)"
+F1 = "PRESENTER 1"
+F2 = "PRESENTER 2"
 BOTH = "BOTH"
 
 flowables: list = []
@@ -280,7 +280,7 @@ add(
     Spacer(1, 4 * cm),
     p(
         "<para align='center'><b>Project:</b> NatWest Code for Purpose — Theme 1<br/>"
-        "<b>Presenters:</b> Friend 1 (Naman) and Friend 2 (your friend)<br/>"
+        "<b>Presenters:</b> Presenter 1 and Presenter 2 (replace names in lower thirds)<br/>"
         "<b>Target length:</b> 4:50 (under 5:00)<br/>"
         "<b>Format:</b> Webcam side-by-side + Screen recording PiP</para>",
         ParagraphStyle("CoverFoot", parent=BODY, alignment=1, fontSize=11, leading=18),
@@ -302,8 +302,8 @@ add(
     p(
         "Roles used everywhere in this guide:",
     ),
-    bullet("<b>Friend 1 (Naman)</b> — primary narrator and demo driver."),
-    bullet("<b>Friend 2 (your friend)</b> — co-host, problem framer, and tech-stack speaker."),
+    bullet("<b>Presenter 1</b> — primary narrator and demo driver."),
+    bullet("<b>Presenter 2</b> — co-host, problem framer, and tech-stack speaker."),
     bullet("<b>BOTH</b> — speaking together (intro hook and outro)."),
     p(
         "Total time you should plan for:",
@@ -948,7 +948,7 @@ doc = SimpleDocTemplate(
     topMargin=2 * cm,
     bottomMargin=2 * cm,
     title="Talk to Data — 5-Minute Submission Video Guide",
-    author="Naman Chawla",
+    author="Naman1821",
 )
 
 doc.build(flowables, onFirstPage=on_page, onLaterPages=on_page)
