@@ -18,7 +18,7 @@
 ├── tests/                   # Unit tests
 ├── data/                    # Sample CSVs (e.g. sample_hackathon.csv)
 ├── assets/screenshots/      # Screenshots for README
-├── docs/                    # Pitch, checklist, judge playbook
+├── docs/                    # Repository layout (this folder)
 ├── docker/init-scripts/     # DB init (CREATE EXTENSION vector)
 ├── docker-compose.yml       # Postgres (pgvector) + Streamlit
 ├── Dockerfile               # Streamlit image for compose

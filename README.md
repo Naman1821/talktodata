@@ -1,16 +1,14 @@
 # Talk to Data — Theme 1 (NatWest Code for Purpose)
 
-## [Deployed app link](https://talk-to-data-4vyr37ecaehsze6zjoewgg.streamlit.app/)
+**Live app:** _(add your Streamlit Cloud URL here after deploy)_
 
-
-
-Streamlit app in `src/talk_to_data/` (entry: `app.py`, layout in `views.py`, analytics in the same package). Matches the hackathon brief: **clarity, trust, speed**, plus **optional free-tier AI (Gemini)** on top of **your upload only**.
+Streamlit app in `src/talk_to_data/` (entry: `app.py`, layout in `views.py`, analytics in the same package). CSV numbers are computed locally with pandas; **optional Gemini** adds a short grounded summary when you add an API key.
 
 Folder layout: [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md).
 
 ## Overview
 
-Non-technical users upload a **CSV** (or **PDF**) and ask business-style questions. **All numbers and tables for CSV are computed locally** with pandas (keyword routing to compare, drivers, breakdown, summaries, entity compare). **Gemini is optional**: it only **rephrases** the verified JSON payload (CSV) or answers **strictly from extracted PDF text** — so judges see both **trust** (transparent tables + sources) and **AI** (brief requirement for free-tier models).
+Non-technical users upload a **CSV** (or **PDF**) and ask business-style questions. **All numbers and tables for CSV are computed locally** with pandas (keyword routing to compare, drivers, breakdown, summaries, entity compare). **Gemini is optional**: it only **rephrases** the verified JSON payload (CSV) or answers **strictly from extracted PDF text** — so you get **transparent tables + sources** first, then optional **AI** text when a key is set.
 
 ## Features (implemented)
 
@@ -69,7 +67,7 @@ The pgvector extension is enabled on first DB init via `docker/init-scripts/01-p
 ## Tech stack
 
 - Python 3, Streamlit, Pandas, NumPy, pypdf  
-- **Google Generative AI (Gemini)** — optional, free tier  
+- **Gemini** (`google-genai`) — optional, free tier  
 - **Postgres + pgvector** — optional semantic search for PDF chunks (Docker)  
 - pytest  
 
@@ -86,10 +84,10 @@ The pgvector extension is enabled on first DB init via `docker/init-scripts/01-p
 pytest -q
 ```
 
-## Honesty note (judges)
+## Notes (API keys)
 
 - Without any key (and no `.env`), the app is **fully usable** with verified outputs only (plus PDF line search).
-- Each reviewer can paste their own key in the right-hand panel for this session, or use `.env` locally.
+- Paste a key in the right-hand **Gemini** panel for this session, or set `GOOGLE_API_KEY` in `.env` / Streamlit secrets.
 
 ## License
 
